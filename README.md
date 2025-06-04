@@ -1,106 +1,66 @@
 
-
-# Ex.4 Deployment and configuration of a Private Cloud  in AWS
+# EX 6: MOVING FILES BETWEEN VIRTUAL MACHINES
 ```
-REG NUMBER: 212223040211  
+REG NUMBER: 212223040211
 NAME: SUBHASHINI B 
 ```
-
 ## Aim:
-To set up of a Private Cloud  in AWS.
-
-## Setting up of a private cloud in AWS:
-
-Setting up a private cloud within AWS, also known as a Virtual Private Cloud (VPC),
-involves creating a logically isolated virtual network that you can use to launch AWS
-resources. This provides you with full control over your virtual networking environment,
-including resource placement, connectivity, and security.
-Amazon Virtual Private Cloud (Amazon VPC) gives you full control over your virtual
-networking environment, including resource placement, connectivity, and security. Get
-started by setting up your VPC in the AWS service console. Next, add resources to it such as
-Amazon Elastic Compute Cloud (EC2) and Amazon Relational Database Service (RDS)
-instances. Finally, define how your VPCs communicate with each other across accounts,
-Availability Zones, or AWS Regions.
-
+To move the files between virtual machine.
+ You can move files between virtual machines in several ways:
+•	You can copy files using network utilities as you would between physical computers on your network. To do this between two virtual machine:
+•	Both virtual machines must be configured to allow access to your network.
+•	Any of the networking methods (host-only, bridged and NAT) are appropriate. 
+•	With host-only networking, you copy files from the virtual machines to the host and vice-versa, since host-only networking only allows the virtual machines see your host computer.
+•	With bridged networking or NAT enabled, you can copy files across your network between the virtual machines.
+•	You can create a shared drive, either a virtual disk or a raw partition, and mount the drive in each of the virtual machines.
 ## Procedure:
-## 1. Plan Your VPC:
-## ● Determine your needs:
-Define your use case, including application requirements, security needs, and
-compliance standards.
-## ● Plan IP address ranges:
-Choose appropriate IP address ranges for your VPC and subnets to avoid conflicts.
-## ● Select Availability Zones:
-Decide which Availability Zones (AZs) you'll use for your resources, considering
-redundancy and performance.
-## ● Plan internet connectivity:
-Determine if you need public internet access and how to configure it.
-## ● Define security:
-Plan your security groups, network ACLs, and access controls to ensure a secure
-environment.
+### How to Enable File sharing in VirtualBox. 
+Step 1. Install Guest Additions on the Guest machine. 
+Step 2. Configure File Sharing on VirtualBox. 
+ 
+Step 1. Install Guest Additions on the Guest machine. 
+1. Start the Virtuabox Guest Machine (OS). 
+2. From Oracle's VM VirtualBox main menu, select Devices > Install Guest Additions *
 
-## 3. Create Your VPC:
-Sign in to AWS Management Console: Access the VPC console and navigate to the VPC dashboard.
- Choose "Create VPC": Initiate the VPC creation process.
-Configure VPC details: Enter the VPC name, CIDR block, Availability Zones, and
-other necessary settings.
-Create subnets: Define subnets within your VPC to isolate different parts of your
-network.
-Create route tables: Specify how traffic is routed within and outside the VPC.
- Create security groups: Define access control rules for your resources.
+a. Open Windows Explorer
+b. Double click at the "CD Drive (X:) VirtualBox Guest additions" to explore its contents.
+		  
+![image](https://github.com/user-attachments/assets/d3dbb341-38c1-4f3e-92f7-0cfe1084e679)
 
-## 4. Deploying Resources:
-Launch EC2 instances: Create and launch virtual machines within your VPC.
- Set up RDS instances: Deploy databases for your applications.
-Configure networking: Connect your resources to the appropriate subnets, security
-groups, and route tables.
-Deploy other AWS services: Integrate other services like S3 for storage and Lambda for serverless computing.
+C.Right click at "VBoxWindowsAdditions" application and from the pop-up menu, choose "Run as administrator".
+ 
+![image](https://github.com/user-attachments/assets/35be1b73-df5c-445e-bb24-94d71f7898e4)
 
-## 5.Managing and Monitoring:
-Use AWS CloudWatch: Monitor your VPC and resources for performance and
-health.
-Configure logging and auditing: Track access and activity within your VPC for
-security and compliance.
-Implement security best practices: Regularly review and update your security
-configuration.
-Scale and adjust as needed: Adjust your VPC infrastructure to meet changing
-demands.
+3.Press Next and then follow the on screen instructions to complete the Guest Additions installation.
+	 
+![image](https://github.com/user-attachments/assets/066c93ef-f2fa-40e8-a8f2-041ca2758db1)
 
-##  Output:
+4. When the setup is completed, choose Finish and restart the Virtuabox guest machine.
+Step 2. Setup File Sharing on VirtualBox Guest Machine.
+1. From VirtualBox menu click Devices and choose Shared Folders -> Shared Folder Settings.
 
-## Create VPC:
+![image](https://github.com/user-attachments/assets/c58d8e37-8a75-47ad-bdc8-800ff55b2ccf)
 
-![Screenshot 2025-05-13 132155](https://github.com/user-attachments/assets/a97fd5ad-b36b-46c0-a049-25e9e9b9ade5)
+2. Click the Add new shared folder icon.
+ 
+![image](https://github.com/user-attachments/assets/b7cb3277-4fce-4267-8916-04f94a41a2f8)
 
-## Configure subnets:
+3. Click the drop-down arrow and select Other.
+ 
+![image](https://github.com/user-attachments/assets/50268dcf-8b14-4592-9a69-439b0639db43)
 
-![Screenshot 2025-05-13 132309](https://github.com/user-attachments/assets/e418b198-4f05-4d26-8072-529dce5d904a)
+3. Locate and highlight (from the Host OS) the folder that you want to share between the VirtualBox Guest machine and the Host and click Select Folder. *
+* Note: To make your life easier, create a new folder for the file sharing, on the Host OS and give it with a recognizable name. (e.g. "Public")
+ 
+![image](https://github.com/user-attachments/assets/076d8f8f-93cc-478e-902b-8d3d0b1474e6)
 
-![Screenshot 2025-05-13 132325](https://github.com/user-attachments/assets/77255511-c7b8-490e-a288-148e39f13e13)
+4. Now, in the 'Add Share' options, type a name (if you want) at the 'Folder Name box, click the Auto Mount and the Make Permanent checkboxes and click OK twice to close the Shared Folder Settings.
+ 
+![image](https://github.com/user-attachments/assets/3f2c7dc1-5781-43e3-8e36-4e0706d603e0)
 
-## Setting Internet Gateway:
-
-![Screenshot 2025-05-13 132456](https://github.com/user-attachments/assets/a68bd286-8101-4b4c-aef7-5d2be2c40ec2)
-
-![Screenshot 2025-05-13 132511](https://github.com/user-attachments/assets/74252b1a-add0-47c1-b482-185e0ee263ba)
-
-![Screenshot 2025-05-13 132525](https://github.com/user-attachments/assets/2be72b29-321a-498d-9994-856aa199e7c2)
-
-## Creating Route Table:
-
-![Screenshot 2025-05-13 132731](https://github.com/user-attachments/assets/ed8136ca-ff43-4627-9582-bb9a2c470a54)
-
-## Configuring Route Table:
-
-![Screenshot 2025-05-13 132743](https://github.com/user-attachments/assets/ee51f140-2bb4-4cfe-8d01-2ed65c6a4f2c)
-
-## Editing Routes:
-
-![Screenshot 2025-05-13 132801](https://github.com/user-attachments/assets/99d77a5f-95b7-4f70-889a-2795c53c8b0a)
-
-## Creating Route Table:
-
-![Screenshot 2025-05-13 132833](https://github.com/user-attachments/assets/bc81ab2e-3f62-4d72-b038-cbd939745206)
+5. You 're done! To access the shared folder from the Guest OS, open Windows Explorer and under the 'Network locations' you should see a new network drive that corresponds to the shared folder on the Host OS.
 
 ## Result:
 
-Thus, a private cloud on AWS involves using VPCs has been created for  a dedicated, isolated network where we can manage our resources and control access according to our requirements.
+Thus the virtual machine files are moved to another VM.
+
